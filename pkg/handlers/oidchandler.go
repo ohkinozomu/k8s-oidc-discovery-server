@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/zitadel/oidc/pkg/oidc"
+	"github.com/zitadel/oidc/v3/pkg/oidc"
 )
 
 func OIDCHandler(c *gin.Context) {
