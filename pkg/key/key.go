@@ -9,8 +9,8 @@ import (
 	"encoding/pem"
 	"fmt"
 
+	jose "github.com/go-jose/go-jose/v3"
 	"github.com/pkg/errors"
-	jose "gopkg.in/square/go-jose.v2"
 )
 
 // originally copied from kubernetes/kubernetes#78502

@@ -6,8 +6,8 @@ import (
 	"encoding/pem"
 	"testing"
 
+	jose "github.com/go-jose/go-jose/v3"
 	"github.com/stretchr/testify/require"
-	jose "gopkg.in/square/go-jose.v2"
 )
 
 func TestReadKey(t *testing.T) {
