@@ -8,7 +8,7 @@ require (
 	github.com/ohkinozomu/cloudrunurlfetcher v0.0.0-20240221030909-b39d6ab0364f
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.8.4
-	github.com/zitadel/oidc/v3 v3.11.2
+	github.com/zitadel/oidc/v3 v3.12.0
 )
 
 require (
