@@ -8,7 +8,7 @@ I wanted to host [the OIDC discovery server that amazon-eks-pod-identity-webhook
 
 This is intended to run on [Google Cloud Run](https://cloud.google.com/run).
 
-PKCS #8 public key must be entered in the `PKCS_KEY` environment variable.
+The PKCS #8 public key must be entered in the `PKCS_KEY` environment variable, or the JWKS must be entered in the `JWKS` environment variable.
 
 ## License
 

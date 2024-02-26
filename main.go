@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
+	"fmt"
 	"os"
 	"regexp"
 	"strings"
@@ -35,10 +37,21 @@ func formatPublicKey(pubKey string) string {
 
 func generateKeysHandlerResponse() (key.KeyResponse, error) {
 	pkcsKey := os.Getenv("PKCS_KEY")
-	if pkcsKey == "" {
-		return key.KeyResponse{}, errors.New("PKCS_KEY is not set")
+	jwks := os.Getenv("JWKS")
+	if jwks != "" && pkcsKey != "" {
+		return key.KeyResponse{}, errors.New("both PKCS_KEY and JWKS are set")
+	}
+	if pkcsKey == "" && jwks == "" {
+		return key.KeyResponse{}, errors.New("PKCS_KEY or JWKS is not set")
 	}
 
+	if jwks != "" {
+		var keyResponse key.KeyResponse
+		if err := json.Unmarshal([]byte(jwks), &keyResponse); err != nil {
+			return key.KeyResponse{}, fmt.Errorf("failed to unmarshal JWKS: %w", err)
+		}
+		return keyResponse, nil
+	}
 	regex := regexp.MustCompile(`^-----BEGIN PUBLIC KEY-----(\s|\S)+-----END PUBLIC KEY-----$`)
 	if regex.MatchString(pkcsKey) {
 		pkcsKey = formatPublicKey(pkcsKey)
