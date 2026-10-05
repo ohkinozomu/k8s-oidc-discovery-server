@@ -3,7 +3,7 @@ module github.com/ohkinozomu/k8s-oidc-discovery-server
 go 1.21
 
 require (
-	github.com/gin-gonic/gin v1.9.1
+	github.com/gin-gonic/gin v1.12.0
 	github.com/go-jose/go-jose/v3 v3.0.2
 	github.com/ohkinozomu/cloudrunurlfetcher v0.0.0-20240221030909-b39d6ab0364f
 	github.com/pkg/errors v0.9.1
